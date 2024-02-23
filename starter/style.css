@@ -1,0 +1,22 @@
+header {
+    text-align: center;
+    background-color: Red;
+    color: white;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cards {
+    display: flex;
+    flex-wrap: wrap;
+    border: 5px solid black;
+    justify-content: space-between;
+    padding: 10px;
+}
+.col-lg-4 {
+   
+    border: 5px solid black;
+}
