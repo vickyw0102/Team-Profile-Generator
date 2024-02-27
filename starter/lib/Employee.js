@@ -1,6 +1,36 @@
 // TODO: Write code to define and export the Employee class
-const inquirer = require("inquirer");;
-const fs = require("fs");
-const engineer = require("./Engineer");
-const intern = require("./Intern");
-const manager = require("./Manager");
+/* The first class is an Employee parent class with the following properties and methods:
+
+name
+id
+email
+getName()
+getId()
+getEmail()
+
+getRole()—returns 'Employee'
+
+
+
+The other three classes will extend Employee. */
+class Employee {
+    constructor(name, id, email) {
+        this.name = name;
+        this.id = id;
+        this.email = email;
+    }
+    getName() {
+        return this.name;
+    }
+    getId() {
+        return this.id;
+    }
+    getEmail() {
+        return this.email;
+    }
+    getRole() {
+        return 'Employee';
+    }
+}
+//export the Employee class
+module.exports = Employee;
