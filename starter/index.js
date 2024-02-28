@@ -17,6 +17,7 @@ let team=[];
 
 //create  prompt to enter the team manager’s info
 const managerInfo = [
+
     {
         type: "input",
         name: "name",
@@ -39,8 +40,9 @@ const managerInfo = [
     }
 ];
 
+
 // create a menu with the option
-const menu = [
+const menuInfo = [
     {
         type: "list",
         name: "menu",
@@ -96,20 +98,66 @@ const internInfo = [
         message: "What is the intern's school?"
     }
 ];
-const EmployeeInfo = [
-    {
-        type: "input",
-        name: "name",
-        message: "What is the employee's name?"
-    },
-    {
-        type: "input",
-        name: "id",
-        message: "What is the employee's id?"
-    },
-    {
-        type: "input",
-        name: "email",
-        message: "What is the employee's email?"
-    }
-];
+
+function manager(){
+    inquirer
+    .prompt(managerInfo
+      /* Pass your questions in here */
+    )
+    .then((answers) => {
+        let newManager=new Manager(answers.name,answers.id,answers.email,answers.officeNumber);
+        team.push(newManager);
+        menu()
+       
+      // Use user feedback for... whatever!!
+    })
+    .catch((error) => {
+      if (error.isTtyError) {
+        // Prompt couldn't be rendered in the current environment
+      } else {
+        // Something else went wrong
+      }
+    });
+
+}
+manager();
+
+function menu(){
+    inquirer
+    .prompt(menuInfo)
+    .then ((answers) => {
+        console.log(answers)
+    })
+    .catch((error) => {
+        if (error.isTtyError) {
+          // Prompt couldn't be rendered in the current environment
+        } else {
+          // Something else went wrong
+        }
+      });
+
+}
+
+
+
+
+//When a user decides to finish building their team then they exit the application, and the HTML is generated.
+
+
+/*  Call the `render` function (provided for you) and pass in an array containing all employee objects; 
+    * The `render` function will generate and return a block of HTML including templated divs for each employee!
+
+const html = render(team);
+  * Create an HTML file using the HTML returned from the `render` function. 
+    * Write it to a file named `team.html` in the `output` folder. 
+    * You can use the provided variable `outputPath` to target this location. */
+
+// const html = render(team);
+// console.log(html);
+
+
+
+
+// fs.writeToFile(outputPath, render(team));
+
+
